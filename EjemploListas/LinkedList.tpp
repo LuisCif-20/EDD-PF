@@ -51,6 +51,16 @@ void LinkedList<T>::remove(const T& data) {
 }
 
 template <typename T>
+void LinkedList<T>::print() {
+    Node<T>* current = head;
+    while (current) {
+        cout << current->getData() << " ";
+        current = current->getNext();
+    }
+    cout << endl;
+}
+
+template <typename T>
 void LinkedList<T>::clear() {
     while (head) {
         Node<T>* temp = head;

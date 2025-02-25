@@ -3,19 +3,20 @@
 using namespace std;
 
 template <typename T>
-class LinkedList {
+class DoublyLinkedList {
 
     private:
         // Attributes
         Node<T>* head;
+        Node<T>* tail;
         size_t size;
 
     public:
         // Constructor
-        LinkedList();
+        DoublyLinkedList();
 
         // Destructor
-        ~LinkedList();
+        ~DoublyLinkedList();
 
         // Methods
         void append(const T& data);
@@ -31,4 +32,4 @@ class LinkedList {
 
 };
 
-#include "LinkedList.tpp"
+#include "DoublyLinkedList.tpp"

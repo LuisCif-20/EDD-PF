@@ -1,13 +1,24 @@
 #include <iostream>
-#include "Node.hpp"
+#include "LinkedList.hpp"
+#include "DoublyLinkedList.hpp"
+
+using namespace std;
 
 int main() {
-    Node<int> node1(10);
-    Node<int> node2(20);
-
-    node1.setNext(&node2);
-    std::cout << "Node 1 data: " << node1.getData() << std::endl;
-    std::cout << "Node 2 data: " << node1.getNext()->getData() << std::endl;
-
+    DoublyLinkedList<string> list;
+    cout << "Esta vacio: " << list.isEmpty();
+    cout << endl;
+    list.append("Luis");
+    list.append("Nery");
+    list.append("Byron");
+    list.append("William");
+    list.print();
+    list.remove("Byron");
+    list.append("Daniel");
+    list.print();
+    cout << "Esta vacio: " << list.isEmpty();
+    cout << endl;
+    cout << "Tamanio: " << list.getSize();
+    cout << endl;
     return 0;
 }
