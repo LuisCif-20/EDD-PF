@@ -1,6 +1,9 @@
 #include <iostream>
 #include <limits>
 
+#include <cstdlib>
+#include <ctime>
+
 #include "./Board/Board.hpp"
 
 using namespace std;
@@ -54,7 +57,7 @@ void handleSetValue(Board& board) {
     size_t x = getIntInput("Ingrese coordenada X: ", 0, board.getWidth() - 1);
     size_t y = getIntInput("Ingrese coordenada Y: ", 0, board.getHeight() - 1);
     size_t z = getIntInput("Ingrese coordenada Z: ", 0, board.getDepth() - 1);
-    size_t value = getIntInput("Ingrese el valor: ", INT_MIN, INT_MAX);
+    size_t value = getIntInput("Ingrese el valor: ", 0, 100);
     board.setNodeData(x, y, z, value);
     cout << "Valor establecido correctamente.\n";
 }
@@ -85,7 +88,7 @@ void handleResize(Board*& board) {
 
 int main() {
     Board* board = new Board(5, 2, 3);
-    
+    srand(time(nullptr));
     int choice;
     do {
         displayMenu();

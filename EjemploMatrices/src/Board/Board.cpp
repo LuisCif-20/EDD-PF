@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib> 
 
 #include "Board.hpp"
 
@@ -9,6 +10,7 @@ Board::Board(const size_t width, const size_t height, const size_t depth) {
     this->height = height;
     this->depth = depth;
     this->origin = nullptr;
+    initialize();
 }
 
 Board::~Board() {
@@ -56,24 +58,22 @@ void Board::connectZ(size_t prevZ, size_t currentZ, Node*** currentLayer) {
 }
 
 Node* Board::getNodeAt(const size_t x, const size_t y, const size_t z) const {
-    if (x < 0 || x >= width || y < 0 || y >= height || z < 0 || z >= depth) {
+    if (x >= width || y >= height || z >= depth) {
         return nullptr;
     }
-    Node* node = origin;
-    for (int i = 0; i < x && node; i++) {
-        node = node->getNext();
+    Node* current = origin;
+    for (size_t i = 0; i < x && current != nullptr; ++i) {
+        current = current->getNext();
     }
-    if (!node) return nullptr;
-
-    for (int i = 0; i < y && node; i++) {
-        node = node->getUp();
+    if (current == nullptr) return nullptr;
+    for (size_t i = 0; i < y && current != nullptr; ++i) {
+        current = current->getUp();
     }
-    if (!node) return nullptr;
-
-    for (int i = 0; i < z && node; i++) {
-        node = node->getFront();
+    if (current == nullptr) return nullptr;
+    for (size_t i = 0; i < z && current != nullptr; ++i) {
+        current = current->getFront();
     }
-    return node;
+    return current;
 }
 
 void Board::cleanupTemporary(Node*** layer) {
@@ -117,7 +117,9 @@ void Board::clear() {
 void Board::setNodeData(size_t x, size_t y, size_t z, int data) {
     Node* node = getNodeAt(x, y, z);
     if (node) {
+        cout << data;
         node->setData(data);
+        cout << node->getData();
     }
 }
 

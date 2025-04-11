@@ -8,13 +8,13 @@ Node::Node(const int data) {
     down = nullptr;
 }
 
-Node::Node(const int data, Node* next, Node* prev, Node* up, Node* down, Node* forward, Node* back) {
+Node::Node(const int data, Node* next, Node* prev, Node* up, Node* down, Node* front, Node* back) {
     this->data = data;
     this->next = next;
     this->prev = prev;
     this->up = up;
     this->down = down;
-    this->forward = forward;
+    this->front = front;
     this->back = back;
 }
 
@@ -40,8 +40,8 @@ Node* Node::getDown() const {
     return down;
 }
 
-Node* Node::getForward() const {
-    return forward;
+Node* Node::getFront() const {
+    return front;
 }
 
 Node* Node::getBack() const {
@@ -68,8 +68,8 @@ void Node::setDown(Node* down) {
     this->down = down;
 }
 
-void Node::setForward(Node* forward) {
-    this->forward = forward;
+void Node::setFront(Node* front) {
+    this->front = front;
 }
 
 void Node::setBack(Node* back) {

@@ -1,6 +1,6 @@
 #include <cstddef>
 
-#include "./Node/Node.hpp"
+#include "../Node/Node.hpp"
 
 class Board {
 

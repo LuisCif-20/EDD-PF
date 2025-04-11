@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    DoublyLinkedList<string> list;
+    LinkedList<string> list;
     cout << "Esta vacio: " << list.isEmpty();
     cout << endl;
     list.append("Luis");
