@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Order/Order.hpp"
 #include "Order/OrderManager.hpp"
 
 using namespace std;
@@ -21,7 +22,7 @@ int main() {
         switch (choice) {
             case 1: {
                 cout << "Enter client name: ";
-                cin.ignore()ñ
+                cin.ignore();
                 getline(cin, clientName);
                 cout << "Enter the price: ";
                 cin >> price;
